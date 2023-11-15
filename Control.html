@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla CONTROL</title>
+    <title>Formulario de Ingreso de Datos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #0074b8;
+            color: #fff;
+            padding: 10px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="datetime-local"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #0074b8;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00568e;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0074b8;
+            color: #fff;
+        }
+    </style>
+   
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro Entrada y Salida Empleados</title>
+</head>
+<body>
+    <h1>Registro Entrada y Salida Empleados</h1>
+    <form action="procesar" method="POST">
+        <label for="id_empleado">CODIGO EMPLEADO:</label>
+        <input type="text" name="id_empleado" id="id_empleado"><br>
+
+        <label for="hora_entrada">HORA ENTRADA:</label>
+        <input type="datetime-local" name="hora_entrada" id="hora_entrada"><br>
+
+        <label for="hora_salida">HORA SALIDA:</label>
+        <input type="datetime-local" name="hora_salida" id="hora_salida"><br>
+
+        <label for="fecha">FECHA:</label>
+        <input type="date" name="fecha" id="fecha"><br>
+
+        <label for="comentario">COMENTARIO:</label>
+        <textarea name="comentario" id="comentario" rows="4" cols="50"></textarea><br>
+
+        <label for="fecha_hora_actual">Fecha y Hora Actual:</label>
+        <input type="text" id="fecha_hora_actual" disabled><br>
+
+        <input type="submit" value="Guardar">
+    </form>
+
+    <script>
+        // Función para actualizar la fecha y hora actual
+        function actualizarFechaHoraActual() {
+            var fechaHora = new Date();
+            var fechaHoraActual = fechaHora.toISOString().slice(0, 16); // Formato para datetime-local
+            document.getElementById("fecha_hora_actual").value = fechaHoraActual;
+        }
+
+        // Actualizar la fecha y hora actual cada segundo
+        setInterval(actualizarFechaHoraActual, 1000);
+
+        // Llamar a la función para mostrar la fecha y hora actual inmediatamente
+        actualizarFechaHoraActual();
+    </script>
+</body>
+</html>
+

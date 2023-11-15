@@ -1,0 +1,75 @@
+<%@ page language="java" import="java.util.ArrayList"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Empleado</title>
+    <link rel="stylesheet" type="text/css" href="css/formempleado.css">
+</head>
+<script language="javascript">
+
+	function funPreguntaBorrar(){
+	if(confirm("¿Esta seguro de eleminar el registro?")){
+	document.forms.CrudEmpleado.parBorrar.value = "SI";
+	window.document.CrudEmpleado.submit();
+	
+	
+		}	
+	}
+
+	function funPreguntaActualizar(){
+	if(confirm("¿Esta seguro de actualizar el registro?")){
+	document.forms.CrudEmpleado.parActualizar.value = "SI";
+	window.document.CrudEmpleado.submit();
+	
+	
+		}	
+	}
+	function funAsignaValores(pid_empleado,pnombre,pciclo_id,pcodigopermiso,pgrado)
+	document.forms.CrudEmpleado.id_empleado.value = pid_empleado;
+	document.forms.CrudEmpleado.nombre.value = pnombre;
+	document.forms.CrudEmpleado.ciclo_id.value = pciclo_id;
+	document.forms.CrudEmpleado.codigopermiso.value = pcodigopermiso;
+	document.forms.CrudEmpleado.grado.value = pgrado;
+</script>
+
+
+<body>
+    <h1>Empleado</h1>
+   <form name="CrudEmpleado" action="crudempleado" method="get" >
+        <label for="id_empleado">Codigo Empleado:</label>
+        <input type="text" name="id_empleado" id="id_empleado" required><br><br>
+
+        <label for="nombre">Nombre Empleado:</label>
+        <input type="text" name="nombre" id="nombre" required><br><br>
+
+		<label for="ciclo_option">Selecciona un Ciclo:</label>
+	<select name="ciclo_option" id="ciclo_option">
+    <option value="primer">Primer Ciclo</option>
+    <option value="segundo">Segundo Ciclo</option>
+    <option value="tercer">Tercer Ciclo</option>
+	</select>
+
+        <label for="codigogrado">Grado:</label>
+        <input type="text" name="grado" id="grado" required><br><br>
+
+    <input name="parInsertar" type="submit" value="Registrar">
+
+    <input name="parActualizar" type="hidden" value="">
+    <input name="parUpdate" type="submit" value="Actualizar " onclick="funPreguntaActualizar();">
+    
+    <input name="parConsultar" type="submit" value="Consultar">
+    
+    <input name="parBorrar" type="hidden" value="">
+    <input name="parDelete" type="submit" value="Borrar" onclick="funPreguntaBorrar();">
+    
+    </form>
+    
+   
+    
+    
+    
+    
+    
+   
+</body>
+</html>

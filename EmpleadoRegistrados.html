@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/formempleado.css">
+    <title>Registrados</title>
+</head>
+<body>
+    
+    <table border=1 width="100%">
+        <tr><th>CODIGO EMPLEADO</th><th>NOMBRE</th><th>CODIGO CICLO</th><th>GRADO</th></tr>
+          <%if(session.getAttribute("catClientes") != null){
+            ArrayList arrDatos = (ArrayList)session.getAttribute("catClientes");
+            if(arrDatos.size() > 0){
+                for(int j=0;j<arrDatos.size();j++){
+                Object[] objDatos = (Object[])arrDatos.get(j);
+            
+            %> 
+        <tr style="cursor:hand" onClick="javascript:funAsignaValores('<%=objDatos[0]%>', '<%=objDatos[1]%>', '<%=objDatos[2]%>', '<%=objDatos[3]%>')";>
+        
+        <td><%=objDatos[0]%></td>
+        <td><%=objDatos[1]%></td>
+        <td><%=objDatos[2]%></td>
+        <td><%=objDatos[3]%></td>
+      
+        
+        
+        </tr>
+        
+        <% 		}//in ciclofor
+            
+            }//finif valida datos
+        
+        }//fin delif tenga el atributo
+        %>
+        </table>  
+            
+</body>
+</html>
+
+
+
+
+
